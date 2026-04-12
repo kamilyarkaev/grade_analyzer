@@ -4,14 +4,22 @@ print("Welcome to the grade analyzer, you can input students names and their gra
 counter = 0
 while working:
   name = input("Enter student name (or 'done'): ")
+  if '1' in name or '2' in name or '3' in name or '4' in name or '5' in name or '6' in name or '7' in name or '8' in name or '9' in name or '0' in name:
+    print("Invalid name, only letters can be accepted")
+    continue
   if name.lower() == "done":
     working = False
   else:
-    counter += 1
-    grade = int(input(f"Score for {name}: "))
+    grade_text = input(f"Score for {name}: ")
+    if not grade_text.isdigit():
+      while not grade_text.isdigit():
+        print("Invalid grade, please enter a numeric grade between 0 and 100.")
+        grade_text = input(f"Score for {name}: ")
+    grade = int(grade_text)
     if grade not in range(0, 101):
       print("Invalid grade, please enter a grade between 0 and 100.")
-      continue        
+      continue
+
     if grade >= 90:
       letter_grade = "A"
     elif grade >= 80:
@@ -22,6 +30,7 @@ while working:
       letter_grade = "D"
     else:
       letter_grade = "F"
+    counter += 1
     students_data[counter] = {"name": name, "grade": grade, "letter_grade": letter_grade}
 total_sum = 0
 grade_list1 = []
@@ -57,5 +66,6 @@ print(f"❌ Failed :{failed}")
 # this code gives an output with different amount of spaces between the columns, i want to make it more organized 
 # and with the same amount of spaces between the columns,
 #asked ai how to do that and its possible but i dont know that method so its just gonna stay like that
-
+#there are 2 methods i didnt know how to work with before, ai in vs code implemented them,i googled and figured out their logic so i think it is valid 
+# to add "continue" and "is.digit" to my code
 # i actually really enjoyed making all of this
