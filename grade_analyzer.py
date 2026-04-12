@@ -15,6 +15,9 @@ while working:
       while not grade_text.isdigit():
         print("Invalid grade, please enter a numeric grade between 0 and 100.")
         grade_text = input(f"Score for {name}: ")
+        if grade_text.isdigit():
+            break
+      print("Invalid grade, please enter a numeric grade between 0 and 100.")
     grade = int(grade_text)
     if grade not in range(0, 101):
       print("Invalid grade, please enter a grade between 0 and 100.")
@@ -34,32 +37,35 @@ while working:
     students_data[counter] = {"name": name, "grade": grade, "letter_grade": letter_grade}
 total_sum = 0
 grade_list1 = []
-for x in range(counter):
-  grade_list1.append(students_data[x+1]["grade"])
-average = round(sum((grade_list1)) / len(grade_list1), 2)
-max_grade = max(grade_list1)
-min_grade = min(grade_list1)
-passed = 0
-failed = 0
-for x in students_data:
-  if students_data[x]["grade"] >= 60:
-    passed += 1
-  else:
-    failed += 1
-#failed - number of grades below 60
-# passed - number of grades above or equal to 60 
-#gradelist1 - list of all the grades
-#maxgrade and mingrade are obvious
-#ive also got a dictionary #students_data with all the students names, grades and letter grades inside of dictionary-number
-#this dictionary logic i think was hardest for me here to comprehend but i think i handled it pretty well
-print("===== CLASS REPORT ===== \n")
-for x in students_data:
-  print(f"{students_data[x]['name']} | {students_data[x]['grade']} | {students_data[x]['letter_grade']}")
-print(f"📈 Class Average :{average}")
-print(f"📉 Highest Grade :{max_grade}")
-print(f"📉 Lowest Grade :{min_grade}")
-print(f"✅ Passed :{passed}")
-print(f"❌ Failed :{failed}")
+if len(students_data) == 0:
+  print("No students data entered.")
+else:
+    for x in range(counter):
+      grade_list1.append(students_data[x+1]["grade"])
+    average = round(sum((grade_list1)) / len(grade_list1), 2)
+    max_grade = max(grade_list1)
+    min_grade = min(grade_list1)
+    passed = 0
+    failed = 0
+    for x in students_data:
+        if students_data[x]["grade"] >= 60:
+            passed += 1
+        else:
+            failed += 1
+    #failed - number of grades below 60
+    # passed - number of grades above or equal to 60 
+    #gradelist1 - list of all the grades
+    #maxgrade and mingrade are obvious
+    #ive also got a dictionary #students_data with all the students names, grades and letter grades inside of dictionary-number
+    #this dictionary logic i think was hardest for me here to comprehend but i think i handled it pretty well
+    print("===== CLASS REPORT ===== \n")
+    for x in students_data:
+        print(f"{students_data[x]['name']} | {students_data[x]['grade']} | {students_data[x]['letter_grade']}")
+    print(f"📈 Class Average :{average}")
+    print(f"📉 Highest Grade :{max_grade}")
+    print(f"📉 Lowest Grade :{min_grade}")
+    print(f"✅ Passed :{passed}")
+    print(f"❌ Failed :{failed}")
 #i remember that i also need to attach the name of the student with highest grade and lowest 
 # but its a little hard for me
 
