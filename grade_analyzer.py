@@ -43,16 +43,14 @@ for x in students_data:
 #maxgrade and mingrade are obvious
 #ive also got a dictionary #students_data with all the students names, grades and letter grades inside of dictionary-number
 #this dictionary logic i think was hardest for me here to comprehend but i think i handled it pretty well
+print("===== CLASS REPORT ===== \n")
 for x in students_data:
-  
-  print("===== CLASS REPORT ===== \n")
-  for x in students_data:
-    print(f"{students_data[x]['name']} | {students_data[x]['grade']} | {students_data[x]['letter_grade']}")
-  print(f"📈 Class Average :{average}")
-  print(f"📉 Highest Grade :{max_grade}")
-  print(f"📉 Lowest Grade :{min_grade}")
-  print(f"✅ Passed :{passed}")
-  print(f"❌ Failed :{failed}")
+  print(f"{students_data[x]['name']} | {students_data[x]['grade']} | {students_data[x]['letter_grade']}")
+print(f"📈 Class Average :{average}")
+print(f"📉 Highest Grade :{max_grade}")
+print(f"📉 Lowest Grade :{min_grade}")
+print(f"✅ Passed :{passed}")
+print(f"❌ Failed :{failed}")
 #i remember that i also need to attach the name of the student with highest grade and lowest 
 # but its a little hard for me
 
